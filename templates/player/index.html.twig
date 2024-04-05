@@ -19,33 +19,33 @@
                 </thead>
                 <tbody>
                     {% for player in players %}
-            <tr>
-                <td>{{player.nom}}</td>
-                <td>{{ player.dateNaissance|date('Y-m-d') }}</td>
-                <td>{{player.nationalite}}</td>
-              
-                <td>
-                    <a href={{path('edit_player' , {id:player.id})}} class="btn btn-success"> Modifier </a>
-                </td>
-                <td>
-                    <button class='info btn' id={{player.id}}>Information</button>
-                </td>
-                <td>
-                    <a href={{path('delete_player' , {id:player.id})}} class="btn btn-primary"> Supprimer </a>
-              
-                   
-                </td>
-            </tr>
-        {% endfor %}
+                    <tr>
+                        <td>{{player.nom}}</td>
+                        <td>{{ player.dateNaissance|date('Y-m-d') }}</td>
+                        <td>{{player.nationalite}}</td>
+
+                        <td>
+                            <a href={{path('edit_player' , {id:player.id})}} class="btn btn-success"> Modifier </a>
+                        </td>
+                        <td>
+                            <button class='info btn' id={{player.id}}>Information</button>
+                        </td>
+                        <td>
+                            <a href={{path('delete_player' , {id:player.id})}} class="btn btn-primary"> Supprimer </a>
+
+
+                        </td>
+                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
 
-           <div class="information">
-           </div>
+            <div class="information">
+            </div>
 
         </div>
     </div>
 </div>
-    
-   
+
+
 {% endblock %}

@@ -1,39 +1,39 @@
 <div class="nav">
-	<span><a href={{path('app_player')}}>HOME</a></span>
-	<ul>
-		<li class="categorie" data-target="club">CLUB</li>
-		<li class="categorie" data-target="national">NATIONAL</li>
-	</ul>
+    <span><a href={{path('app_player')}}>HOME</a></span>
+    <ul>
+        <li class="categorie" data-target="club">CLUB</li>
+        <li class="categorie" data-target="national">NATIONAL</li>
+    </ul>
 
-	<form method="get" action="{{ path('app_search') }}">
-		<input type="search" name="q" placeholder="Rechercher..."/>
-		<select name="search_by">
-			<option value="nom">Nom</option>
-			<option value="nombre_buts">Nombre de buts</option>
-			<option value="parcours">Parcours</option>
-		</select>
-		<button type="submit">Rechercher</button>
-	</form>
+    <form method="get" action="{{ path('app_search') }}">
+        <input type="search" name="q" placeholder="Rechercher..." />
+        <select name="search_by">
+            <option value="nom">Nom</option>
+            <option value="nombre_buts">Nombre de buts</option>
+            <option value="parcours">Parcours</option>
+        </select>
+        <button type="submit">Rechercher</button>
+    </form>
 
 </div>
 <div class="popup" id="clubPopup">
-	<ul>
-		{% for club in clubs %}
+    <ul>
+        {% for club in clubs %}
 
-			<li>
-				<a href="{{ path('player_by_club', { 'clubId': club.id }) }}">{{ club.name }}</a>
-			</li>
+        <li>
+            <a href="{{ path('player_by_club', { 'clubId': club.id }) }}">{{ club.name }}</a>
+        </li>
 
-		{% endfor %}
-	</ul>
+        {% endfor %}
+    </ul>
 </div>
 
 <div class="popup" id="nationalPopup">
-	<ul>
-		{% for national in nationals %}
-			<li>
-				<a href="{{ path('player_by_national', { 'nationalId': national.id }) }}">{{ national.name }}</a>
-			</li>
-		{% endfor %}
-	</ul>
+    <ul>
+        {% for national in nationals %}
+        <li>
+            <a href="{{ path('player_by_national', { 'nationalId': national.id }) }}">{{ national.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
 </div>

@@ -13,15 +13,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ClubController extends AbstractController
 {
-    #[Route('/club', name: 'app_club')]
-    public function index(): Response
-    {
-        return $this->render('club/index.html.twig', [
-            'controller_name' => 'ClubController',
-        ]);
-    }
-    #[Route('/club/add', name:'add_club' , methods: ['GET', 'POST'])]
-    public function add_club(Request $request , ClubRepository $clubRepository,NationalRepository $nationalRepository) : Response
+    
+    #[Route('/club/add', name: 'add_club', methods: ['GET', 'POST'])]
+    public function add_club(Request $request, ClubRepository $clubRepository, NationalRepository $nationalRepository): Response
     {
         $club = new Club();
         $form = $this->createForm(ClubType::class, $club);
@@ -44,13 +38,13 @@ class ClubController extends AbstractController
         ]);
     }
 
-    public function navComponent(ClubRepository $clubRepository , NationalRepository $nationalRepository): Response
-{
-    $clubs = $clubRepository->findAll();
-    $national = $nationalRepository->findAll();
-    return $this->render('components/nav.html.twig', [
-        'clubs' => $clubs,
-        'nationals'=> $national
-    ]);
-}
+    public function navComponent(ClubRepository $clubRepository, NationalRepository $nationalRepository): Response
+    {
+        $clubs = $clubRepository->findAll();
+        $national = $nationalRepository->findAll();
+        return $this->render('components/nav.html.twig', [
+            'clubs' => $clubs,
+            'nationals' => $national
+        ]);
+    }
 }

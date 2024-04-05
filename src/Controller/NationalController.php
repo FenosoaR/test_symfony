@@ -12,15 +12,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class NationalController extends AbstractController
 {
-    #[Route('/national', name: 'app_national')]
-    public function index(): Response
-    {
-        return $this->render('national/index.html.twig', [
-            'controller_name' => 'NationalController',
-        ]);
-    }
-    #[Route('/national/add', name:'add_national' , methods: ['GET', 'POST'])]
-    public function add_club(Request $request , NationalRepository $nationalRepository) : Response
+
+    #[Route('/national/add', name: 'add_national', methods: ['GET', 'POST'])]
+    public function add_club(Request $request, NationalRepository $nationalRepository): Response
     {
         $national = new National();
         $form = $this->createForm(NationalType::class, $national);

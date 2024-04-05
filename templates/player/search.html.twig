@@ -1,49 +1,53 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste Player!{% endblock %}
+{% block title %}Liste Player!
+{% endblock %}
 
 {% block body %}
-{% include 'components/nav.html.twig' %}
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <h3>Liste des joueurs</h3>
-            <div class="right">
-                <a href={{path('add_player')}}>Ajouter un nouveau joueur</a>
-            </div>
-            <table class="table">
-                <thead>
-                    <th>Nom</th>
-                    <th>Club</th>
-                </thead>
-                <tbody>
-                    {% for player in players %}
-            <tr>
-                <td>{{player.nom}}</td>
-                <td>{{player.club.name}}</td>
-              
-                <td>
-                    <a href={{path('edit_player' , {id:player.id})}} class="btn btn-success"> Modifier </a>
-                </td>
-                <td>
-                    <button class='info btn' id={{player.id}}>Information</button>
-                </td>
-                <td>
-                    <a href={{path('delete_player' , {id:player.id})}} class="btn btn-primary"> Supprimer </a>
-              
-                   
-                </td>
-            </tr>
-        {% endfor %}
-                </tbody>
-            </table>
+	{% include 'components/nav.html.twig' %}
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h3>Liste des joueurs</h3>
+				<div class="right">
+					<a href={{path('add_player')}}>Ajouter un nouveau joueur</a>
+				</div>
+				<table class="table">
+					<thead>
+						<th>Nom</th>
+						<th>Club</th>
+					</thead>
+					<tbody>
+						{% for player in players %}
+							<tr>
+								<td>{{player.nom}}</td>
+								<td>{{player.club.name}}</td>
 
-           <div class="information">
-           </div>
+								<td>
+									<a href={{path('edit_player' , {id:player.id} )}} class="btn btn-success">
+										Modifier
+									</a>
+								</td>
+								<td>
+									<button class='info btn' id={{player.id}}>Information</button>
+								</td>
+								<td>
+									<a href={{path('delete_player' , {id:player.id} )}} class="btn btn-primary">
+										Supprimer
+									</a>
 
-        </div>
-    </div>
-</div>
-    
-   
+
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+
+				<div class="information"></div>
+
+			</div>
+		</div>
+	</div>
+
+
 {% endblock %}

@@ -41,7 +41,6 @@ public function findAllLike($value, $searchBy = null): array
 {
     $qb = $this->createQueryBuilder('p');
 
-    // Si le paramètre de recherche est spécifié, ajoutez la condition correspondante
     if ($searchBy === 'nombreBut') {
         $qb->andWhere('p.nombreBut = :value')
            ->setParameter('value', $value);
