@@ -1,51 +1,62 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste Player!{% endblock %}
+{% block title %}Liste Player!
+{% endblock %}
 
 {% block body %}
-{% include 'components/nav.html.twig' %}
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <h3>Liste des joueurs</h3>
-            <div class="right">
-                <a href={{path('add_player')}}>Ajouter un nouveau joueur</a>
-            </div>
-            <table class="table">
-                <thead>
-                    <th>Nom</th>
-                    <th>Date de naissance</th>
-                    <th>Nationalité</th>
-                </thead>
-                <tbody>
-                    {% for player in players %}
-                    <tr>
-                        <td>{{player.nom}}</td>
-                        <td>{{ player.dateNaissance|date('Y-m-d') }}</td>
-                        <td>{{player.nationalite}}</td>
+	{% include 'components/nav.html.twig' %}
+	<div class="container" style="margin-top: 15px;">
+		<div class="row">
+			<div class="col-lg-12">
+				{% if club is defined and club|length > 0 %}
+					<h3>Liste des joueurs de
+						{{ club[0].name }}</h3>
+				{% elseif national is defined and national|length > 0 %}
+					<h3>Liste des joueurs de
+						{{national[0].name}}</h3>
+					{%else%}
+					<h3>Liste des joueurs</h3>
+				{% endif %}
 
-                        <td>
-                            <a href={{path('edit_player' , {id:player.id})}} class="btn btn-success"> Modifier </a>
-                        </td>
-                        <td>
-                            <button class='info btn' id={{player.id}}>Information</button>
-                        </td>
-                        <td>
-                            <a href={{path('delete_player' , {id:player.id})}} class="btn btn-primary"> Supprimer </a>
+				<a href={{path('add_player')}}>Ajouter un nouveau joueur</a>
+				<table class="table" style="margin-top :10px">
+					<thead>
+						<th>Nom</th>
+						<th>Date de naissance</th>
+						<th>Nationalité</th>
+					</thead>
+					<tbody>
+						{% for player in players %}
+							<tr>
+								<td>{{player.nom}}</td>
+								<td>{{ player.dateNaissance|date('Y-m-d') }}</td>
+								<td>{{player.nationalite}}</td>
+
+								<td>
+									<a href={{path('edit_player' , {id:player.id} )}} class="btn btn-success">
+										Modifier
+									</a>
+								</td>
+								<td>
+									<button class='info btn' id={{player.id}}>Information</button>
+								</td>
+								<td>
+									<a href={{path('delete_player' , {id:player.id} )}} class="btn btn-primary">
+										Supprimer
+									</a>
 
 
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
 
-            <div class="information">
-            </div>
 
-        </div>
-    </div>
-</div>
+			</div>
+		</div>
+	</div>
+	<div class="information"></div>
 
 
 {% endblock %}

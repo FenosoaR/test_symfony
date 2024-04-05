@@ -5,24 +5,25 @@
 
 {% block body %}
 	{% include 'components/nav.html.twig' %}
-	<div class="container">
+	<div class="container" style="margin-top: 15px;">
 		<div class="row">
 			<div class="col-lg-12">
 				<h3>Liste des joueurs</h3>
 				<div class="right">
 					<a href={{path('add_player')}}>Ajouter un nouveau joueur</a>
 				</div>
-				<table class="table">
+				<table class="table" style="margin-top :10px">
 					<thead>
 						<th>Nom</th>
-						<th>Club</th>
+						<th>Date de naissance</th>
+						<th>Nationalité</th>
 					</thead>
 					<tbody>
 						{% for player in players %}
 							<tr>
 								<td>{{player.nom}}</td>
-								<td>{{player.club.name}}</td>
-
+                                <td>{{ player.dateNaissance|date('Y-m-d') }}</td>
+                                <td>{{player.nationalite}}</td>
 								<td>
 									<a href={{path('edit_player' , {id:player.id} )}} class="btn btn-success">
 										Modifier

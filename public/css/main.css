@@ -51,14 +51,6 @@
 .popup li a:hover {
     color: blue;
 }
-.right{
-    float: right;
-    margin-top: -40px;
-}
-.right a{
-    text-decoration: none;
-    font-size: 20px;
-}
 .information{
     margin: auto;
     background-color: white;
@@ -68,9 +60,13 @@
     display: none;
     padding: 10px;
     z-index: 77;
-    margin-top: -30%;
-    width: 60%;
+    margin-top: -20%;
+    width: 50%;
 }
 .info{
     background-color: lightgrey;
+}
+.recherche{
+    border: 1px solid;
+    border-radius: 2px;
 }

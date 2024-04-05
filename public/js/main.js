@@ -44,19 +44,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 let popupContent = `
                     <div>
                         <h3> Information sur : ${data.name}</h3>
-                        <hr>
-                        <strong>Nom : </strong><span> ${data.name}</span>
-                        <hr>
+                        <strong>Nom : </strong><span> ${data.name}</span> <br>
                         <strong>Date de naissance </strong>:<span> ${formattedDate}</span>
-                        <hr>
+                        <br>
                         <strong>Nationalite :</strong><span> ${data.nationalite}</span>
-                        <hr>
+                        <br>
                         <strong>ClubTeam : </strong><span> ${data.club}</span>
-                        <hr>
+                        <br>
                         <strong>NationalTeam : </strong><span> ${data.nationale}</span>
-                        <hr>
+                        <br>
                         <strong>Nombre de but : </strong><span> ${data.nombreBut}</span>
-                        <hr>
+                        <br>
                         <strong>Parcours : </strong><span> ${data.parcours}</span>
                         <hr>
                         <button class='btn btn-primary fermer'>Fermer</button>

@@ -122,10 +122,13 @@ class PlayerController extends AbstractController
         $clubs = $clubRepository->findAll();
         $nationals = $nationalRepository->findAll();
 
+        $club = $clubRepository->findBy(['id' => $clubId]);
+    
         return $this->render('player/index.html.twig', [
             'players' => $players,
             'clubs' => $clubs,
             'nationals' => $nationals,
+            'club' => $club,
 
         ]);
     }
@@ -138,10 +141,13 @@ class PlayerController extends AbstractController
         $clubs = $clubRepository->findAll();
         $nationals = $nationalRepository->findAll();
 
+        $national = $nationalRepository->findBy(['id' => $nationalId]);
+
         return $this->render('player/index.html.twig', [
             'players' => $players,
             'clubs' => $clubs,
             'nationals' => $nationals,
+            'national' => $national
         ]);
     }
 
